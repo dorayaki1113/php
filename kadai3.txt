@@ -1,0 +1,31 @@
+問１
+$c = double(4);
+echo $c;
+function double($x) {
+    return $x * 2;
+}
+
+問２
+$val = isNumber(50);
+echo $val;
+
+function isNumber($val){
+    return is_numeric($val);
+
+}
+
+問３
+$result = dubleArr(array(1,2,3));
+
+if (!$result) {
+    echo "引数が不正です!";
+    return;
+}
+
+foreach ($result as $num) {
+    echo "\n";
+}
+
+function doubleArr($array) {
+    return $array * 2;
+?>
