@@ -15,17 +15,33 @@ function isNumber($val){
 }
 
 問３
-$result = dubleArr(array(1,2,3));
+$result = dubleArr(array("ひと"));
 
+// 引数に配列以外を渡した場合
 if (!$result) {
     echo "引数が不正です!";
     return;
 }
 
 foreach ($result as $num) {
+    echo $num;
     echo "\n";
 }
+//++++++++++++ここまでは変更しない+++++++++++++++++++++
 
-function doubleArr($array) {
-    return $array * 2;
-?>
+/**
+引数として受け取った配列の数値をすべて2倍にして返却する
+**/
+function dubleArr($result){ 
+    if (!is_array ($result) ){
+        return false;
+    $resultArr = [];
+    foreach ($result as $Arr){
+        $resultArr[] = $Arr*2;
+        
+    }
+    return $resultArr;
+        } else {
+    return;
+}
+}
