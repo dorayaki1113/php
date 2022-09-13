@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+    </head>
+    <body>
+        <div id="message">
+        </div>
+        <form>
+            <hr/>
+            <label>：「ABC」から始まる文字列</label>
+            <input type="text" name="name"  id="inputName1"  maxlength="100" value="" placeholder="：「ABC」から始まる文字列をにゅうりょくしてください">
+            <br/>
+            <label>：「ABC」から始まり「XYZ」で終わる文字列</label>
+            <input type="text" name="name"  id="inputName2"  maxlength="100" value="" placeholder="：「ABC」から始まり「XYZ」で終わる文字列">
+            <br/>
+            <label>：「DEF」が含まれる文字列</label>
+            <input type="text" name="name"  id="inputName3"  maxlength="100" value="" placeholder="：「DEF」が含まれる文字列">
+            <br/>
+            <label>：「@」の前後に１文字以上存在している文字列</label>
+            <input type="text" name="name"  id="inputName4"  maxlength="100" value="" placeholder="：「@」の前後に１文字以上存在している文字列">
+            <br/>
+            <label>：０～９までの整数で構成される3ケタの数字</label>
+            <input type="text" name="name"  id="inputName5"  maxlength="100" value="" placeholder="：０～９までの整数で構成される3ケタの数字">
+            <br/>
+            <label>：数字と大文字アルファベットを含まない文字列</label>
+            <input type="text" name="name"  id="inputName6"  maxlength="100" value="" placeholder="：数字と大文字アルファベットを含まない文字列">
+            <br>
+            <input type="button" id="btnSubmit" value="登録する">
+            <hr/>
+        </form>
+    </body>
+</html>
+
+<script>
+    window.onload = function(){
+        /*各画面オブジェクト*/
+        const btnSubmit = document.getElementById('btnSubmit');
+        const inputName1 = document.getElementById('inputname1');
+        const inputName2 = document.getElementById('inputname2');
+        const inputName3 = document.getElementById('inputname3');
+        const inputName4 = document.getElementById('inputname4');
+        const inputName5 = document.getElementById('inputname5');
+        const inputName6 = document.getElementById('inputname6');
+
+        reg1 = 
+        btnSubmit.addEventListener('click', function(event) {
+            let message = [];
+            /*入力値チェック*/
+            if(inputName1.value ==""){
+                message.push("「ABC」から始まる文字列ではありません");
+            }
+            if(inputName2.value==""){
+                message.push("「ABC」から始まり「XYZ」で終わる文字列ではありません");
+            }
+            if(inputName3.value==""){
+                message.push("「DEF」が含まれる文字列ではありません");
+            }
+            if(inputName4.value==""){
+                message.push("「@」の前後に１文字以上存在している文字列はありません");
+            }
+            if(inputName5.value==""){
+                message.push("０～９までの整数で構成される3ケタの数字ではありません")
+            }
+            if(inputName6.value==""){
+                message.push("数字と大文字アルファベットを含まない文字列ではありません")
+            }
+            if(message.length > 0){
+                alert(message);
+                return;
+            }
+            alert('入力チェックOK');
+        });
+    };
+</script>
