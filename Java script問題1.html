@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+ 
+<html lang="ja">
+ 
+   <head>
+ 
+   </head>
+ 
+   <body>
+ 
+       <div id="message">
+ 
+       </div>
+ 
+       <form>
+ 
+           <hr/>
+ 
+           <label>氏名：</label>
+ 
+           <input type="text" name="name"  id="inputName"  maxlength="100" value="" placeholder="氏名を入力してください">
+ 
+           <br/>
+ 
+           <label>年齢：</label>
+ 
+           <input type="number" name="age" id="inputAge" minlength="0" maxlength="150" value="">
+ 
+           <br/>
+ 
+           <label>パスワード：</label>
+ 
+           <input type="text" name="Pass" id="inputPass"  value="" placeholder="パスワード">
+ 
+           <br/>
+ 
+           <input type="button" id="btnSubmit" value="登録する">
+ 
+           <hr/>
+ 
+       </form>
+ 
+   </body>
+ 
+</html>
+ 
+ 
+<script>
+ 
+   window.onload = function(){
+ 
+       /*各画面オブジェクト*/
+ 
+       const btnSubmit = document.getElementById('btnSubmit');
+ 
+       const inputName = document.getElementById('inputName');
+ 
+       const inputAge = document.getElementById('inputAge');
+ 
+       const inputPass = document.getElementById('inputPass');
+ 
+       const reg1 = /[ぁ-んa-zA-Z亜-黑]/;
+ 
+       const reg2 = /(?=.*[A-Z])(?=.*[a-z])[a-zA-Z0-9]{8,100}/;
+ 
+ 
+       
+ 
+       
+ 
+       
+ 
+       btnSubmit.addEventListener('click', function(event) {
+ 
+           let message = [];
+ 
+           /*入力値チェック*/
+ 
+           if(inputName.value == ""){
+ 
+               message.push("氏名が未入力です");
+ 
+           } else if(!reg1.test(inputName.value)){
+ 
+               message.push("氏名は数字と記号を含まず入力してください");
+                
+            }
+            
+            if(inputAge.value ==""){
+ 
+               message.push("年齢が未入力です");
+ 
+           }
+ 
+           if(inputPass.value ==""){
+ 
+               message.push("パスワードが未入力です");
+ 
+           }else if(!reg2.test(inputPass.value )){
+ 
+               message.push("パスワードは８文字以上かつ大文字、小文字のアルファベットを１つずついれてください");
+ 
+           }
+ 
+           if(message.length > 0){
+ 
+               alert(message);
+ 
+               return;
+ 
+           }
+ 
+           alert('送信成功');
+ 
+       });
+ 
+   };
+ 
+</script>
